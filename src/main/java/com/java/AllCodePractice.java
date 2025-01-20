@@ -24,137 +24,136 @@ public class AllCodePractice {
         armStrongNumbers();
         stringSwapping();
         anagramsCheck();
-       isValidParanthsys();
+        isValidParanthsys();
 
 
     }
 
     private static boolean isValidParanthsys() {
-        String s="{[()]}";
+        String s = "{[()]}";
 
-        boolean isValidParanthasys=true;
+        boolean isValidParanthasys = true;
 
-        Stack<Character> stack=new Stack<Character>();
+        Stack<Character> stack = new Stack<Character>();
 
-        for(char c: s.toCharArray()){
-            if ((c == '{') ||(c=='(') || (c=='[')) {
+        for (char c : s.toCharArray()) {
+            if ((c == '{') || (c == '(') || (c == '[')) {
                 stack.push(c);
 
-            }else if((c==']') && !stack.isEmpty() && stack.peek()=='['){
+            } else if ((c == ']') && !stack.isEmpty() && stack.peek() == '[') {
                 stack.pop();
-            }else if((c=='}') && !stack.isEmpty() && stack.peek()=='{'){
+            } else if ((c == '}') && !stack.isEmpty() && stack.peek() == '{') {
                 stack.pop();
-            }else if((c==')') && !stack.isEmpty() && stack.peek()=='('){
+            } else if ((c == ')') && !stack.isEmpty() && stack.peek() == '(') {
                 stack.pop();
-            }else{isValidParanthasys=false;
+            } else {
+                isValidParanthasys = false;
                 System.out.println(isValidParanthasys);
-               return false;
+                return false;
 
             }
 
         }
         System.out.println(isValidParanthasys);
-   return stack.isEmpty();
+        return stack.isEmpty();
     }
 
     private static void anagramsCheck() {
-        String s1="listen";
-        String s2="silent";
-        boolean isAnagram=false;
+        String s1 = "listen";
+        String s2 = "silent";
+        boolean isAnagram = false;
 
-        Map<Character,Integer> map=new HashMap<>();
-        for(char c: s1.toCharArray()){
-            map.put(c,map.getOrDefault(c,0)+1);
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s1.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
-        for(char c: s2.toCharArray()){
-            if(!map.containsKey(c)){
-                 isAnagram=false;
+        for (char c : s2.toCharArray()) {
+            if (!map.containsKey(c)) {
+                isAnagram = false;
             }
-            map.put(c,map.get(c)-1);
-            if(map.get(c)==0){
-             map.remove(c);
+            map.put(c, map.get(c) - 1);
+            if (map.get(c) == 0) {
+                map.remove(c);
             }
         }
-    if(map.isEmpty()) System.out.println(isAnagram=true);
+        if (map.isEmpty()) System.out.println(isAnagram = true);
     }
 
     private static void stringSwapping() {
-        String s1="Rama";
-        String s2="Prashanth";
-        System.out.println( s1 +"======"+s2);
-        s1=s1+s2;
-        s2=s1.substring(0,(s1.length()-s2.length()));
-        s1=s1.substring(s2.length());
+        String s1 = "Rama";
+        String s2 = "Prashanth";
+        System.out.println(s1 + "======" + s2);
+        s1 = s1 + s2;
+        s2 = s1.substring(0, (s1.length() - s2.length()));
+        s1 = s1.substring(s2.length());
 
-        System.out.println( s1 +"======"+s2);
+        System.out.println(s1 + "======" + s2);
     }
 
     private static void armStrongNumbers() {
 
 
-           for(int num=1;num<=500;num++){
-               int temp,sum=0;
-               temp=num;
-               for(int j=num;j>0;j=j/10){
-                   int rem=j%10;
-                   sum=sum+rem*rem*rem;
-               }
-               if(temp==sum){
-                   System.out.println(sum+"yes its arm");
-               }
-
+        for (int num = 1; num <= 500; num++) {
+            int temp, sum = 0;
+            temp = num;
+            for (int j = num; j > 0; j = j / 10) {
+                int rem = j % 10;
+                sum = sum + rem * rem * rem;
             }
+            if (temp == sum) {
+                System.out.println(sum + "yes its arm");
+            }
+
+        }
 
 
     }
 
     private static void palindrome() {
-        int num=151;
+        int num = 151;
 
-        int temp=num;
-        int sum=0;
+        int temp = num;
+        int sum = 0;
         int rem;
 
-    while(num>0){
-        rem=num%10;
-        sum=sum*10+rem;
-        num=num/10;
+        while (num > 0) {
+            rem = num % 10;
+            sum = sum * 10 + rem;
+            num = num / 10;
 
-    }
-if(temp==sum){
-    System.out.println("its palindrome");
-}
+        }
+        if (temp == sum) {
+            System.out.println("its palindrome");
+        }
 
     }
 
     private static void findLargestAndSmallestValueInArray() {
-       // int[] arr = {0, -1, 0, 7, 9, 0, 4, 2, 1};
-        int[] arr = {23,25,3,47};
-        int max=arr[0];
-        int min=arr[0];
+        // int[] arr = {0, -1, 0, 7, 9, 0, 4, 2, 1};
+        int[] arr = {23, 25, 3, 47};
+        int max = arr[0];
+        int min = arr[0];
 
-        for(int i=0;i<arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
 
-                if(arr[i]>max){
-                    max=arr[i];
-                }
-                if(arr[i]<min){
-                    min=arr[i];
-                }
+            if (arr[i] > max) {
+                max = arr[i];
             }
-        System.out.println(max+"  "+min);
+            if (arr[i] < min) {
+                min = arr[i];
+            }
         }
-
-
+        System.out.println(max + "  " + min);
+    }
 
 
     private static void isSortedArray() {
-       int[] arr = {0, -1, 0, 7, 9, 0, 4, 2, 1};
+        int[] arr = {0, -1, 0, 7, 9, 0, 4, 2, 1};
         //int[] arr = {1,4,6,8,9,10};
-        boolean isSorted=true;
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]<arr[i-1]){
-                isSorted=false;
+        boolean isSorted = true;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < arr[i - 1]) {
+                isSorted = false;
             }
         }
         System.out.println(isSorted);
