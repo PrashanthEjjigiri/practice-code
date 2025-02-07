@@ -25,7 +25,32 @@ public class AllCodePractice {
         stringSwapping();
         anagramsCheck();
         isValidParanthsys();
+        
+        
+        
+        
+         int firstDuplicateIndex = firstDuplicateIndex();
+         if(firstDuplicateIndex != -1) {
+        	 System.out.println("Index"+firstDuplicateIndex);
+         }
 
+    }
+    
+ 
+    
+    private static int firstDuplicateIndex() {
+        int[] arr = {2, -1, 4, 7, 9, 10, 4, 2, 1};
+         HashSet<Integer> set = new HashSet<>();
+    
+        for (int i = 0; i < arr.length; i++) {
+           if(set.contains(arr[i])){
+        	   return i;
+           }
+       
+           set.add(arr[i]);
+        }
+		return -1;
+        
 
     }
 
