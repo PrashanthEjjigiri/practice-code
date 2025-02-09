@@ -15,7 +15,7 @@ Core-Java
 11.	Do while
 12.	While
 13.	For loop
-14.	Sopln
+14.	System.out.println
 15.	Iterator&iterable
 16.	Length Vs length()
 17.	Modifiers(final,static,Synchronized,transient,volatile)
@@ -54,28 +54,29 @@ Core-Java
 
 Differences
 =======================
-1.first level cache/ s.c.l
-2.get curr session/ open session
-3.save /save(or)update
-4.delete/truncate
-5.get/load
-6.between/in
-7.drop &truncate
-8.idempotent/non idempotent
-9.@controller/@ rest controller
-10.@primary/@qualifier
-11.equals/==(double equal)
-12..equal & hash code
-13.final & immutability  
-14.string & string buffer &string builder
-15.array& collection
-16 . hash map&hash table
-17 .hash map&linked hashmap
-18 . hash map &concurrent hash map
-19 .interface &abstraction
-20 .throw & throws
-21 . length & length()
+1. first level cache/ s.c.l
+2. get curr session/ open session
+3. save /save(or)update
+4. delete/truncate
+5. get/load
+6. between/in
+7. drop &truncate
+8. idempotent/non idempotent
+9. @controller/@ rest controller
+10. @primary/@qualifier
+11. equals/==(double equal)
+12. .equal & hash code
+13. final & immutability  
+14. string & string buffer &string builder
+15. array& collection
+16. hash map&hash table
+17. hash map&linked hashmap
+18. hash map &concurrent hash map
+19. interface &abstraction
+20. throw & throws
+21. length & length()
 22. streams & Parallel Streams
+23. jpa repository & Crud repository
 
 Logical-Programming
 ===========================
@@ -84,10 +85,10 @@ Logical-Programming
 3. our own immutable
 4. comparator &comparable 
 5. equal& hash code
-6. count the num of occurance of words in string 
+6. count the num of occurrence of words in string 
 7. reverse words in string 
-8. secong largest num in array 
-9. frequncey of each character in given string
+8. second largest num in array 
+9. frequency of each character in given string
 10. remove duplicate from string lest  ... 
 11. print prime num
 12. binary search
@@ -96,28 +97,28 @@ Logical-Programming
 15. sort array (2)
 16. find max sub array 
 17. find all sub array
-18. move all zerosto end
+18. move all zeros to end
 19. sorted array 
 20. find (large and smallest num in array )
-21. palindrom()
-22.string swapping
-23 . armstrong
-24 .anagrams check
-25 .is valid paranhthasis 
-26 .linked list 
-27 hash map   & hashset
+21. palindrome()
+22. string swapping
+23. armstrong
+24. anagrams check
+25. is valid parenthesis 
+26. linked list 
+27. hash map   & hashset
 
 java 8 features
 ==========================
-1. lamda
+1. lambda
 2. stream api
 3. method references
-4.static method 
-5 .default      method
-6.functional interface
-7 .date api
-8 . nashorn
-9 .optional
+4. static method
+5. default      method
+6. functional interface
+7. date api
+8. nashorn
+9. optional
 
 
 

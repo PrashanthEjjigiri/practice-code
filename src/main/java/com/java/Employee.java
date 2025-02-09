@@ -9,8 +9,9 @@ private String city;
 private int age;
 private String gender;
 private Long salary;
+ private String department;
 public Employee(int id, String firstName, String lastname, String email, String city, int age, String gender,
-		Long salary) {
+		Long salary,String department) {
 	super();
 	this.id = id;
 	this.firstName = firstName;
@@ -20,11 +21,12 @@ public Employee(int id, String firstName, String lastname, String email, String 
 	this.age = age;
 	this.gender = gender;
 	this.salary = salary;
+	this.department = department;
 }
 @Override
 public String toString() {
 	return "Employee [id=" + id + ", firstName=" + firstName + ", lastname=" + lastname + ", email=" + email + ", city="
-			+ city + ", age=" + age + ", gender=" + gender + ", salary=" + salary + "]";
+			+ city + ", age=" + age + ", gender=" + gender + ", salary=" + salary + ", department"+ department +"]";
 }
 public int getId() {
 	return id;
@@ -74,5 +76,8 @@ public Long getSalary() {
 public void setSalary(Long salary) {
 	this.salary = salary;
 }
+	public String getDepartment() {
+		return department;
+	}
 
 }

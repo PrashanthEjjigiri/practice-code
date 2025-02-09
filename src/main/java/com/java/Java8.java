@@ -63,8 +63,46 @@ public class Java8 {
        printDistnictNuminDescOrderStartsWithOne();
        printTheCountOfParticularSubString();
        printTheMiddleCharOfString();
-       
+       reverseWordInsameOrder();
+	   reverseWord();
+	   flatmap();
+	   sumFirstFiveElements();
    
+	}
+
+	private static void sumFirstFiveElements() {
+		List<Integer> list2 = List.of(12, 13, 10, 11, 14, 15, 21, 20);
+		int sum=list2.stream().limit(5).mapToInt(Integer:: intValue).sum();
+		System.out.println(sum);
+	}
+
+	private static void flatmap() {
+		List<List<Integer>> nestedList = Arrays.asList(
+				Arrays.asList(1, 2, 3),
+				Arrays.asList(4, 5),
+				Arrays.asList(6, 7)
+		);
+
+		List<Integer> flaternList=nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
+		System.out.println(flaternList);
+	}
+
+	private static void reverseWord() {
+		String s= "prashanth is java dev";
+		String reduce = s.chars().mapToObj(x -> (char) x).map(String::valueOf).reduce("", (a, b) ->b+a);
+	System.out.println(reduce);
+	}
+
+	private static void reverseWordInsameOrder() {
+
+		String s= "prashanth is java dev";
+
+		String collect = Arrays.stream(s.split(" ")).map(x -> {
+			StringBuffer sb = new StringBuffer(x);
+			sb.reverse();
+			return sb;
+		}).collect(Collectors.joining(" "));
+		System.out.println(collect);
 	}
 
 	private static void printTheMiddleCharOfString() {
@@ -98,11 +136,11 @@ public class Java8 {
 
 	private static void employeeCalculatons() {
 		// TODO Auto-generated method stub
-		Employee emp=new Employee(1, "prashanth", "ejjigiri", "ep@gmail.com", "Hyd", 30, "Male", 20000l);
-		Employee emp1=new Employee(2, "rama", "ejjigiri", "re@yahoo.com", "ban", 26, "FeMale", 20000l);
-		Employee emp2=new Employee(3, "raju", "inda", "ri@orkut.com", "Hyd", 35, "Male", 15000l);
-		Employee emp3=new Employee(4, "praveen", "dam", "pd@yahoo.com", "ban", 27, "Male", 20000l);
-		Employee emp4=new Employee(5, "prashanth", "komp", "ep@gmail.com", "Del", 30, "Male", 10000l);
+		Employee emp=new Employee(1, "prashanth", "ejjigiri", "ep@gmail.com", "Hyd", 30, "Male", 20000L,"IT");
+		Employee emp1=new Employee(2, "rama", "ejjigiri", "re@yahoo.com", "ban", 26, "FeMale", 25000L,"HR");
+		Employee emp2=new Employee(3, "raju", "inda", "ri@orkut.com", "Hyd", 35, "Male", 15000L,"IT");
+		Employee emp3=new Employee(4, "praveen", "dam", "pd@yahoo.com", "ban", 27, "Male", 27000L,"HR");
+		Employee emp4=new Employee(5, "prashanth", "komp", "ep@gmail.com", "Del", 30, "Male", 30000L,"Secutiry");
 		List<Employee> asList = Arrays.asList(emp,emp1,emp2,emp3,emp4);
 		Map<String, Long> collect = asList.stream().map(e->e.getEmail().substring(e.getEmail().indexOf("@"))).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
 		System.out.println(collect);
@@ -123,6 +161,12 @@ public class Java8 {
 	
 	Map<String, Double> collect5 = asList.stream().collect(Collectors.groupingBy(Employee::getGender,Collectors.averagingInt(Employee::getAge)));
 	System.out.println(collect5);
+
+		Long l = asList.stream().map(Employee::getSalary).sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+System.out.println(l);
+
+		Map<String, List<String>> collect1 = asList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(Employee::getFirstName, Collectors.toList())));
+	System.out.println(collect1);
 	}
 
 	private static void procductCalculations() {
@@ -168,7 +212,7 @@ public class Java8 {
 	private static void convertSringToUppercaseAndConcatToOneString() {
 		// TODO Auto-generated method stub
 		List<String> asList = Arrays.asList("abc","def","ghi");
-		String string = asList.stream().map(x->x.toUpperCase()).reduce((a,b)->a+ ""+b).get();
+		String string = asList.stream().map(x->x.toUpperCase()).reduce((a,b)->a+ "s"+b).get();
 		System.out.println(string);
 	}
 
@@ -396,7 +440,7 @@ public class Java8 {
 
 	private static void printReverseAndPropersortofIntArray() {
 		int[] arr= {172,2,3,4,5};
-		Arrays.stream(arr).mapToObj(x->x).sorted().forEach(System.out::println);
+		Arrays.stream(arr).boxed().sorted().forEach(System.out::println);
 		Arrays.stream(arr).mapToObj(x->x).sorted(Collections.reverseOrder()).forEach(System.out::println);
 		
 	}

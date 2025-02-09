@@ -33,7 +33,7 @@ public class AllCodePractice {
          if(firstDuplicateIndex != -1) {
         	 System.out.println("Index"+firstDuplicateIndex);
          }
-
+        reverseWordsInString1();
     }
     
  
@@ -173,15 +173,15 @@ public class AllCodePractice {
 
 
     private static void isSortedArray() {
-        int[] arr = {0, -1, 0, 7, 9, 0, 4, 2, 1};
-        //int[] arr = {1,4,6,8,9,10};
+        //int[] arr = {0, -1, 0, 7, 9, 0, 4, 2, 1};
+        int[] arr = {1,4,6,8,9,10};
         boolean isSorted = true;
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < arr[i - 1]) {
                 isSorted = false;
             }
         }
-        System.out.println(isSorted);
+        System.out.println("Sorted Array :::::"+isSorted);
     }
 
     private static void moveAllZerosToEnd() {
@@ -240,15 +240,15 @@ public class AllCodePractice {
             }
 
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println("1"+Arrays.toString(arr));
         int i = 0;
-        while (arr[i] < arr[i + 1]) {
+        while (arr[i] > arr[i + 1]) {
             arr[i] = arr[i] + arr[i + 1];
             arr[i + 1] = arr[i] - arr[i + 1];
             arr[i] = arr[i] - arr[i + 1];
 
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println("2"+Arrays.toString(arr));
 
     }
 
@@ -389,10 +389,23 @@ public class AllCodePractice {
         }
         System.out.println("second Large :" + secondLargest);
     }
-
-    private static void reverseWordsInString() {
+    private static void reverseWordsInString1() {
         String s = "java is java programme pra pra pra";
         String[] words = s.split("\\s+");
+        StringBuffer str = new StringBuffer();
+        for(int i=0;i<words.length;i++){
+            char[] charArray = words[i].toCharArray();
+            for (int j = charArray.length - 1; j >= 0; j--) {
+                str.append(charArray[j]);
+
+            }
+            str.append(" ");
+        }
+        System.out.println("Reversed Word :" + str);
+    }
+    private static void reverseWordsInString() {
+        String s = "java is java programme pra pra pra";
+        String[] words = s.split(" ");
         StringBuffer str = new StringBuffer();
         for (int i = words.length - 1; i >= 0; i--) {
             str.append(words[i]);
