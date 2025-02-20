@@ -83,8 +83,8 @@ public class Java8 {
 				Arrays.asList(6, 7)
 		);
 
-		List<Integer> flaternList=nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
-		System.out.println(flaternList);
+		List<Integer> flaternList=nestedList.stream().flatMap(Collection::stream).collect(Collectors.toList());
+		System.out.println("++++++++++++++++++++"+flaternList);
 	}
 
 	private static void reverseWord() {
