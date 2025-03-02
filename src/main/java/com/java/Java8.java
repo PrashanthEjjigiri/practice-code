@@ -18,7 +18,7 @@ public class Java8 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-       removeDuplicatesFromStringAndPrintSameOrder();
+       removeDuplicatesFromStringAndPrintSameOrder();//String s="aabcddeefghhiij";
        findTheWordThatHasHighestLength();
        NthHighestLengthFromString();
        NthHighestLengthIndexFromString();
@@ -67,7 +67,6 @@ public class Java8 {
 	   reverseWord();
 	   flatmap();
 	   sumFirstFiveElements();
-   
 	}
 
 	private static void sumFirstFiveElements() {
@@ -212,15 +211,15 @@ System.out.println(l);
 	private static void convertSringToUppercaseAndConcatToOneString() {
 		// TODO Auto-generated method stub
 		List<String> asList = Arrays.asList("abc","def","ghi");
-		String string = asList.stream().map(x->x.toUpperCase()).reduce((a,b)->a+ "s"+b).get();
+		String string = asList.stream().map(String::toUpperCase).reduce((a, b)->a+b).get();
 		System.out.println(string);
 	}
 
 	private static void multiplyArrayofInts() {
 		// TODO Auto-generated method stub
 		List<Integer> asList = Arrays.asList(6,2,5,4,1,3);
-		Integer integer = asList.stream().reduce((a,b)->a*b).get();
-		System.out.println(integer);
+		Integer integer = asList.stream().reduce(1,(a,b)->a*b);
+		System.out.println("_______________________"+integer);
 	}
 
 	private static void printStringGroupByFirstElement() {
@@ -256,7 +255,7 @@ System.out.println(l);
 	private static void convertStringToUpperCase() {
 		// TODO Auto-generated method stub
 		List<String> asList = Arrays.asList("abc","def","ghi");
-		List<String> collect = asList.stream().map(x->x.toUpperCase()).collect(Collectors.toList());
+		List<String> collect = asList.stream().map(String::toUpperCase).collect(Collectors.toList());
 		System.out.println(collect);
 	}
 
@@ -415,7 +414,7 @@ System.out.println(l);
 		String s="Hello World";
 		
 		Map<Character, Long> collect = s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()));
-		Character character = collect.entrySet().stream().filter(x->x.getValue()>1).map(x->x.getKey()).findFirst().get();
+		char character = collect.entrySet().stream().filter(x->x.getValue()>1).map(x->x.getKey()).findFirst().get();
 		System.out.println(character);
 		
 		

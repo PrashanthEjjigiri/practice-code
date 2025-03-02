@@ -4,14 +4,14 @@ import java.util.*;
 
 public class AllCodePractice {
     public static void main(String[] args) {
-        wordOccurence();
-        reverseWordsInString();
-        secondLargestNumberInArray();
-        frequencyOfEachString();
-        removeDuplicatesFromListString();
-        isPrimeOrNot();
-        printPrimeNumbers();
-        binarySearchforArray();
+        wordOccurence();// String s = "java is java programme pra pra pra";
+        reverseWordsInString();//String s = "java is java programme pra pra pra";
+        secondLargestNumberInArray();//int[] arr = {12, 2, 10, 6, 5, 11, 7, 9, -1};
+        frequencyOfEachString();//String s = "java java is programme";
+        removeDuplicatesFromListString();//List<String> list = Arrays.asList("java", "C++", "java", "python", "C++");
+        isPrimeOrNot();//int n = 19;
+        printPrimeNumbers();//int n = 15;
+        binarySearchforArray();//int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         findDuplicatesInArray();
         reverseAnArray();
         sortArray();
@@ -286,7 +286,7 @@ public class AllCodePractice {
 
     private static void binarySearchforArray() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int target = 5;
+        int target = 7;
         int left = 0;
         int right = arr.length - 1;
         while (left <= right) {
